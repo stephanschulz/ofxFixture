@@ -85,6 +85,11 @@ void ofApp::setup(){
     }
 }
 
+void ofApp::exit(){
+    for( auto & head : heads ){
+        head.close();
+    }
+}
 //--------------------------------------------------------------
 void ofApp::update(){
     
@@ -110,7 +115,7 @@ void ofApp::update(){
         
         circle_angle+=circle_angleStep;
         ofLog()<<"circle_angle "<<circle_angle;
-        circle_angle = ofWrapDegrees(circle_angle,0,360);
+//        circle_angle = ofWrapDegrees(circle_angle,0,360);
         
         for( auto & head : heads ){
             head.setTarget( glm::vec3(x,600.0f,z) );  

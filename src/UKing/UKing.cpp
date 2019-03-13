@@ -26,6 +26,8 @@ void ofx::fixture::UKing::UFO::init(){
 
 void ofx::fixture::UKing::UFO::close(){
 
+    ofLog()<<"ofx::fixture::UKing::UFO::close()";
+    
 //    setDmx( 35, 9 );  // shutter close     
 //
 //    // resets to zero position
