@@ -101,7 +101,7 @@ void ofApp::update(){
     } else if(bSearchlightDemo == true){
         
         int circle_radius = 500;
-        circle_angleStep = 1;
+        circle_angleStep = 0.3;
         
         float center_x = 325;
         float center_z = 525;
@@ -118,10 +118,10 @@ void ofApp::update(){
 //            head.setColor(ofColor(255,255,255));
         }
     }
-    manager.update( false ); // don't send dmx in this example
+//    manager.update( false ); // don't send dmx in this example
     
     // usually you call this
-//     manager.update();
+     manager.update();
 }
 
 //--------------------------------------------------------------
