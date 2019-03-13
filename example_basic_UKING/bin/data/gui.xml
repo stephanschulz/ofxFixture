@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<settings>
+	<fixtures_controls>
+		<u1ch1_UKING_UFO>
+			<dimmer>0.704082</dimmer>
+			<zoom>0</zoom>
+			<color>
+				<red>255</red>
+				<green>255</green>
+				<blue>255</blue>
+				<white>0</white>
+			</color>
+			<pan>67.3636</pan>
+			<tilt>-54.5852</tilt>
+			<chase_target>1</chase_target>
+			<target>1077.87, 0, 192.37</target>
+		</u1ch1_UKING_UFO>
+		<u1ch15_UKING_UFO>
+			<dimmer>0.704082</dimmer>
+			<zoom>0</zoom>
+			<color>
+				<red>255</red>
+				<green>255</green>
+				<blue>255</blue>
+				<white>0</white>
+			</color>
+			<pan>66.0091</pan>
+			<tilt>-53.0412</tilt>
+			<chase_target>1</chase_target>
+			<target>1077.87, 0, 192.359</target>
+		</u1ch15_UKING_UFO>
+		<u1ch29_UKING_UFO>
+			<dimmer>0.704082</dimmer>
+			<zoom>0</zoom>
+			<color>
+				<red>255</red>
+				<green>255</green>
+				<blue>255</blue>
+				<white>0</white>
+			</color>
+			<pan>62.7759</pan>
+			<tilt>-53.7875</tilt>
+			<chase_target>1</chase_target>
+			<target>1077.87, 0, 192.353</target>
+		</u1ch29_UKING_UFO>
+		<u1ch43_UKING_UFO>
+			<dimmer>0.704082</dimmer>
+			<zoom>0</zoom>
+			<color>
+				<red>255</red>
+				<green>255</green>
+				<blue>255</blue>
+				<white>0</white>
+			</color>
+			<pan>64.2685</pan>
+			<tilt>-55.2448</tilt>
+			<chase_target>1</chase_target>
+			<target>1077.87, 0, 192.348</target>
+		</u1ch43_UKING_UFO>
+	</fixtures_controls>
+	<draw_address>1</draw_address>
+	<target_demo>1</target_demo>
+	<update_multiple>
+		<select_heads>
+			<select_all>1</select_all>
+			<u1ch1_UKING_UFO>1</u1ch1_UKING_UFO>
+			<u1ch15_UKING_UFO>1</u1ch15_UKING_UFO>
+			<u1ch29_UKING_UFO>1</u1ch29_UKING_UFO>
+			<u1ch43_UKING_UFO>1</u1ch43_UKING_UFO>
+		</select_heads>
+		<select_dimmers>
+			<select_all>1</select_all>
+		</select_dimmers>
+		<dimmer>0.704082</dimmer>
+		<zoom>0</zoom>
+		<red>255</red>
+		<green>255</green>
+		<blue>255</blue>
+		<white>255</white>
+		<target>0, 0, 0</target>
+	</update_multiple>
+</settings>

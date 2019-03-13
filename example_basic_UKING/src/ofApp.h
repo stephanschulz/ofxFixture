@@ -30,9 +30,15 @@ public:
     ofxPanel gui;
     ofxPanel positions;
     
-    ofParameter<bool> bTargetDemo;
+    ofParameter<bool> bFloorDemo;
+
     
     int transitioning;
     float cursor;
     
+    bool bShowGui;
+    
+    ofParameter<bool> bSearchlightDemo;  
+    float circle_angle;
+    float circle_angleStep;
 };

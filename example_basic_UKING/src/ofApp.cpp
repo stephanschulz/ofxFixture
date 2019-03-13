@@ -64,33 +64,64 @@ void ofApp::setup(){
     // adds misc parameters to gui ----------------------------------
     gui.add( manager.controls );
     gui.add( ofx::fixture::Dimmer::bDrawAddress ); // static ofParameter<bool>
-    gui.add( bTargetDemo.set("target demo", true) );
+    gui.add( bFloorDemo.set("floor demo", false) );
+    gui.add( bSearchlightDemo.set("search demo", false) );
+
+    
     gui.add( manager.multiple );
-    gui.minimizeAll();
+//    gui.loadFromFile("gui.xml");
+//    gui.minimizeAll();
+    
+    bShowGui = true;
     
     positions.add( manager.positions );
-    positions.minimizeAll();
-    //positions.loadFromFile( "positions.xml" );
+//    positions.minimizeAll();
+    positions.loadFromFile( "positions.xml" );
 
+    circle_angle = 0;
+    
+    for( auto & head : heads ){
+        head.dimmer = 0;
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    if( bTargetDemo ){ // chase a noise generated target 
+    if( bFloorDemo ){ // chase a noise generated target 
         for( auto & head : heads ){
             head.setTarget( glm::vec3( 
                     ofNoise(ofGetElapsedTimef()*0.08f, 0) * 1200.0f, 
                     0.0f,
                     ofNoise(ofGetElapsedTimef()*0.08f, 2) * 800.0f
-            ));        
+            ));  
+            
+//            head.setColor(ofColor(255,255,255));
         }        
+    } else if(bSearchlightDemo == true){
+        
+        int circle_radius = 500;
+        circle_angleStep = 1;
+        
+        float center_x = 325;
+        float center_z = 525;
+        float x = center_x + (circle_radius) * cos(ofDegToRad(circle_angle));
+        float z = center_z + (circle_radius) * sin(ofDegToRad(circle_angle));
+        
+        circle_angle+=circle_angleStep;
+        ofLog()<<"circle_angle "<<circle_angle;
+        circle_angle = ofWrapDegrees(circle_angle,0,360);
+        
+        for( auto & head : heads ){
+            head.setTarget( glm::vec3(x,600.0f,z) );  
+            
+//            head.setColor(ofColor(255,255,255));
+        }
     }
-
-//    manager.update( false ); // don't send dmx in this example
+    manager.update( false ); // don't send dmx in this example
     
     // usually you call this
-     manager.update();
+//     manager.update();
 }
 
 //--------------------------------------------------------------
@@ -100,8 +131,12 @@ void ofApp::draw(){
     
     manager.draw();
     
-    positions.draw();
-    gui.draw();
+    
+    
+    if(bShowGui == true){
+        positions.draw();
+        gui.draw();
+    }
 }
 
 
@@ -112,7 +147,14 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+    if(key == 'g'){
+        bShowGui = !bShowGui;
+        
+        if(bShowGui == false){
+            gui.saveToFile("gui.xml");
+             positions.saveToFile( "positions.xml" );
+        }
+    }
 }
 
 //--------------------------------------------------------------

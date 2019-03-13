@@ -2,15 +2,15 @@
 #include "Manager.h"
 
 ofx::fixture::Manager::Manager() : multiple( snapshots.multiple.parameters ){
-
-    parameters.setName( "fixture manager" );
-        positions.setName( "fixtures positions" ); 
-        parameters.add( positions );
-        controls.setName( "fixtures controls" ); 
-        parameters.add( controls );
-        
-}
     
+    parameters.setName( "fixture manager" );
+    positions.setName( "fixtures positions" ); 
+    parameters.add( positions );
+    controls.setName( "fixtures controls" ); 
+    parameters.add( controls );
+    
+}
+
 void ofx::fixture::Manager::setup( ofxDmx & dmx, float worldWidth, float worldHeight, float worldDepth, bool useSimulation ){
     this->useSimulation = useSimulation;
     this->dmx = &dmx;

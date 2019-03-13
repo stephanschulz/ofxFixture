@@ -20,18 +20,18 @@ public:
 
     void setTarget( glm::vec3 pos ){ chaseTarget=true; target = pos; }
     void setColor( const ofColor & color, bool alphaAsWhite=false );
-
+    
     ofParameter<float> zoom;
     
     ofParameterGroup color;
-        ofParameter<float> red;
-        ofParameter<float> green;
-        ofParameter<float> blue;
-        ofParameter<float> white;
-
+    ofParameter<float> red;
+    ofParameter<float> green;
+    ofParameter<float> blue;
+    ofParameter<float> white;
+    
     ofParameter<float> pan;
     ofParameter<float> tilt;
-
+    
     ofParameter<bool> chaseTarget;
     ofParameter<glm::vec3> target;
 
@@ -53,12 +53,14 @@ protected: // to be called from subclasses
     void setTiltRange( float min, float max );
     
 
-    void setDmxDimmer16bit( int coarseChannel, int fineChannel ){
+    void setDmxDimmer16bit( int coarseChannel, int fineChannel = -1 ){
+        
+        ofLog()<<"coarseChannel "<<coarseChannel<<" fineChannel "<<fineChannel<<" dimmer "<<dimmer;
         int dim = dimmer * 65535;
         int dim0 = (dim >> 8) & 0x00ff;
         int dim1 =  dim       & 0x00ff;
         setDmx( coarseChannel, dim0 );
-        setDmx( fineChannel, dim1 );	
+       if(fineChannel != -1) setDmx( fineChannel, dim1 );	
     }
 
     void setDmxPan16bit( int coarseChannel, int fineChannel){
